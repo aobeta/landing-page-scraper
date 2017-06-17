@@ -1,0 +1,20 @@
+{
+  "name": "landing-page-scraper",
+  "version": "1.0.0",
+  "description": "library that scrapes landing pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Group 3 (cosc 499-ubco)",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-strawhouse": "^3.0.3",
+    "jest": "^20.0.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
