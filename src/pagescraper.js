@@ -1,5 +1,6 @@
 const scrape = require("website-scraper");
 const fs = require("fs");
+const scrapeConfig = require("../scraper.config.js");
 
 // url & path  expects a string
 function scrapepage(url, path = "dist/") {
@@ -9,32 +10,13 @@ function scrapepage(url, path = "dist/") {
         throw new Error("directory already exists");
     });
     return new Promise((resolve, reject) => {
-      const options = {
+      const options = Object.assign({}, scrapeConfig, {
         urls: [url],
+        directory: path,
         urlFilter: function(arg) {
           return arg.indexOf(url) === 0;
-        },
-        directory: path,
-        sources: [
-          { selector: "img", attr: "src" },
-          { selector: 'link[rel="stylesheet"]', attr: "href" },
-          { selector: "script", attr: "src" },
-        ],
-        onResourceSaved: resource => {
-          console.log(`Resource ${resource} was saved to ${path}`);
-        },
-        onResourceError: (resource, err) => {
-          console.log(`Resource  was not saved because of ${err}`);
-        },
-        httpResponseHandler: response => {
-          if (response.statusCode === 404) {
-            return Promise.reject(new Error("status is 404"));
-          } else {
-            return Promise.resolve(response.body);
-          }
-        },
-        filenameGenerator: "bySiteStructure",
-      };
+        }
+      });
       scrape(options)
         .then(result => {
           console.log("scrapepage has finnised executing");

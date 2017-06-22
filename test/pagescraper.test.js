@@ -11,11 +11,7 @@ function isDirSync(aPath) {
   try {
     return fst.statSync(aPath).isDirectory();
   } catch (e) {
-    if (e.code === "ENOENT") {
-      return false;
-    } else {
-      return true;
-    }
+    return e.code !== "ENOENT";
   }
 }
 
