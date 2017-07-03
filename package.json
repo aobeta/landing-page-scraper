@@ -9,16 +9,29 @@
   "author": "Group 3 (cosc 499-ubco)",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-strawhouse": "^3.0.3",
     "jest": "^20.0.4"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.1",
+    "cheerio": "^0.22.0",
     "clean-html": "^1.4.3",
+    "eslint": "^3.9.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
     "lodash": "^4.17.4",
     "minifier": "^0.8.1",
-    "website-scraper": "^3.1.0"
-  }
+    "website-scraper": "^3.1.0",
+    "wrap-ansi": "^2.0.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aobeta/landing-page-scraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aobeta/landing-page-scraper/issues"
+  },
+  "homepage": "https://github.com/aobeta/landing-page-scraper#readme"
 }
