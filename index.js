@@ -6,6 +6,4 @@ const scraper = require("./src/pagescraper");
 
 // just some random landing page I found
 // HtmlManager("http://webdam.com/lp/how-to-select-a-dam_041516/");
-scraper("http://webdam.com/lp/how-to-select-a-dam_041516/").catch(err => {
-  console.log("hello");
-});
+scraper("https://www.scientificamerican.com/");
