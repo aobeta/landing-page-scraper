@@ -16,15 +16,15 @@ function scrapepage(url, path = "dist/") {
         subdirectories: [
           { directory: "img", extensions: [".jpg", ".png", ".svg"] },
           { directory: "js", extensions: [".js"] },
-          { directory: "css", extensions: [".css"] },
+          { directory: "css", extensions: [".css"] }
         ],
         urlFilter: function(arg) {
           return arg.indexOf(url) === 0;
-        },
+        }
       });
       scrape(options)
         .then(result => {
-          console.log("scrapepage has finnised executing");
+          console.log("scrapepage has finished executing");
           resolve(result);
         })
         .catch(error => {
