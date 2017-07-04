@@ -3,7 +3,7 @@ const fs = require("fs");
 const scrapeConfig = require("../scraper.config.js");
 
 // url & path  expects a string
-function scrapepage(url, path = "dist/") {
+function scrapePage(url, path = "dist/") {
   try {
     fs.access(path, err => {
       if (err && err.code !== "ENOENT")
@@ -13,11 +13,7 @@ function scrapepage(url, path = "dist/") {
       const options = Object.assign({}, scrapeConfig, {
         urls: [url],
         directory: path,
-        subdirectories: [
-          { directory: "img", extensions: [".jpg", ".png", ".svg"] },
-          { directory: "js", extensions: [".js"] },
-          { directory: "css", extensions: [".css"] }
-        ],
+   
         urlFilter: function(arg) {
           return arg.indexOf(url) === 0;
         }
