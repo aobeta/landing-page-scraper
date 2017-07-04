@@ -17,6 +17,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
     "clean-html": "^1.4.3",
+    "glob": "^7.1.2",
     "lodash": "^4.17.4",
     "minifier": "^0.8.1",
     "website-scraper": "^3.1.0"

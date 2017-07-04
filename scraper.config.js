@@ -1,10 +1,5 @@
 module.exports = {
   directory: "",
-  subdirectories: [
-    { directory: "img", extensions: [".jpg", ".png", ".svg"] },
-    { directory: "js", extensions: [".js"] },
-    { directory: "css", extensions: [".css"] },
-  ],
   onResourceSaved: resource => {
     console.log(`Resource ${resource} was saved to fs`);
   },
@@ -18,4 +13,5 @@ module.exports = {
       return Promise.resolve(response.body);
     }
   },
+  filenameGenerator: "bySiteStructure",
 };
