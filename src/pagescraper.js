@@ -3,7 +3,7 @@ const fs = require("fs");
 const scrapeConfig = require("../scraper.config.js");
 
 // url & path  expects a string
-function scrapePage(url, path = "dist/") {
+function scrapepage(url, path = "dist/") {
   try {
     fs.access(path, err => {
       if (err && err.code !== "ENOENT")
