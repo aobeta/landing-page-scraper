@@ -1,11 +1,6 @@
-const glob = require("glob-fs")({ gitignore: true });
+const fs = require("fs");
 
-glob
-  .readdirStream("**/*")
-  .on("data", file => {
-    console.log(file.path);
-  })
-  .on("error", console.error)
-  .on("end", () => {
-    console.log("end");
-  });
+// find all the css files.
+fs.readdir("dist/css", (err, files) => {
+  files.forEach(file => console.log(file));
+});
