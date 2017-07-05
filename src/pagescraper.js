@@ -13,13 +13,14 @@ function scrapepage(url, path = "dist/") {
       const options = Object.assign({}, scrapeConfig, {
         urls: [url],
         directory: path,
+   
         urlFilter: function(arg) {
           return arg.indexOf(url) === 0;
         }
       });
       scrape(options)
         .then(result => {
-          console.log("scrapepage has finnised executing");
+          console.log("scrapepage has finished executing");
           resolve(result);
         })
         .catch(error => {
