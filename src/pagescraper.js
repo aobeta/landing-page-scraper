@@ -2,8 +2,8 @@ const scrape = require("website-scraper");
 const fs = require("fs");
 const scrapeConfig = require("../scraper.config.js");
 
-// url & path  expects a string
-function scrapepage(url, path = "dist/") {
+// url  expects a string
+function scrapepage(url) {
   try {
     fs.access(path, err => {
       if (err && err.code !== "ENOENT")
@@ -12,8 +12,6 @@ function scrapepage(url, path = "dist/") {
     return new Promise((resolve, reject) => {
       const options = Object.assign({}, scrapeConfig, {
         urls: [url],
-        directory: path,
-
         urlFilter: function(arg) {
           return arg.indexOf(url) === 0;
         },

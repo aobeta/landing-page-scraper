@@ -1,5 +1,5 @@
 module.exports = {
-  directory: "",
+  directory: "dist/",
   subdirectories: [
     { directory: "img", extensions: [".jpg", ".png", ".svg"] },
     { directory: "js", extensions: [".js"] },
