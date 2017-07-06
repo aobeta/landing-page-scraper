@@ -4,6 +4,8 @@ const scrapeConfig = require("../scraper.config.js");
 const cleanCSS = require("clean-css");
 const copyScrapeConfig = Object.assign({}, scrapeConfig);
 const copyCSSConfig = Object.assign({}, cssConfig);
+const writeFile = require("write");
+
 //
 
 function optimizeCSS() {
@@ -18,7 +20,7 @@ function optimizeCSS() {
     new cleanCSS(copyCSSConfig)
       .minify(arrayOfPaths)
       .then(output => {
-        console.log(output.styles);
+        writeFile(`${copyScrapeConfig.directory}css/min.css`, output.styles);
       })
       .catch(error => {
         console.log(error);
