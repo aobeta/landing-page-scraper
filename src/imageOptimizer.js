@@ -1,0 +1,2 @@
+const imageOptim = require("imageoptim");
+

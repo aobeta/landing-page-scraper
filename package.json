@@ -22,7 +22,8 @@
     "lodash": "^4.17.4",
     "minifier": "^0.8.1",
     "website-scraper": "^3.1.0",
-    "wrap-ansi": "^2.0.0"
+    "wrap-ansi": "^2.0.0",
+    "imageoptim": "0.4.2"
   },
   "directories": {
     "test": "test"
