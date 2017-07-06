@@ -5,6 +5,11 @@ module.exports = {
     { directory: "js", extensions: [".js"] },
     { directory: "css", extensions: [".css"] },
   ],
+  sources: [
+    { selector: "img", attr: "src" },
+    { selector: 'link[rel="stylesheet"]', attr: "href" },
+    { selector: "script", attr: "src" },
+  ],
   onResourceSaved: resource => {
     console.log(`Resource ${resource} was saved to fs`);
   },
