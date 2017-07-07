@@ -1,28 +1,44 @@
 {
-  "name": "landing-page-scraper",
+  "name": "project-3-strawhouse-project-3-team",
   "version": "1.0.0",
-  "description": "library that scrapes landing pages",
+  "description": "Landing page scraper library",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "clean-css": "^4.1.5",
+    "directory-search": "^0.0.32",
+    "eslint": "^3.9.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "html-beautify": "^1.0.4",
+    "lodash": "^4.17.4",
+    "minifier": "^0.8.1",
+    "uglify-js": "^3.0.23",
+    "website-scraper": "^3.1.0",
+    "wrap-ansi": "^2.0.0",
+    "imageoptim": "0.4.2",
+    "write": "^0.3.3",
+    "read-file": "^0.2.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
-  "author": "Group 3 (cosc 499-ubco)",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^4.1.1",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-config-strawhouse": "^3.0.3",
-    "jest": "^20.0.4"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UBCO-COSC499-Summer2017/project-3-strawhouse-project-3-team.git"
   },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.1",
-    "clean-css": "^4.1.5",
-    "clean-html": "^1.4.3",
-    "glob": "^7.1.2",
-    "lodash": "^4.17.4",
-    "minifier": "^0.8.1",
-    "read-file": "^0.2.0",
-    "website-scraper": "^3.1.0",
-    "write": "^0.3.3"
-  }
+  "keywords": [
+    "Webscraper",
+    "Library",
+    "Strawhouse"
+  ],
+  "author": "UBC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UBCO-COSC499-Summer2017/project-3-strawhouse-project-3-team/issues"
+  },
+  "homepage": "https://github.com/UBCO-COSC499-Summer2017/project-3-strawhouse-project-3-team#readme"
 }
