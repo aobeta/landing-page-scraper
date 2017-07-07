@@ -13,16 +13,17 @@
     "eslint": "^3.9.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "html-beautify": "^1.0.4",
+    "imageoptim": "0.4.2",
     "lodash": "^4.17.4",
     "minifier": "^0.8.1",
+    "node-minify": "^2.1.1",
     "uglify-js": "^3.0.23",
     "website-scraper": "^3.1.0",
-    "wrap-ansi": "^2.0.0",
-    "imageoptim": "0.4.2"
+    "wrap-ansi": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
