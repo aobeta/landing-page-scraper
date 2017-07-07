@@ -20,8 +20,6 @@ function scrapepage(url) {
       .then(result => {
         console.log("scrapepage has finnished executing");
         console.log("running css optimizations");
-        optimizeCSS();
-        console.log("----------done-----------");
         resolve(result);
       })
       .catch(error => {
