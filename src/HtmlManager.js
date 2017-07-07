@@ -40,7 +40,7 @@ function processScripts(html) {
   var $ = cheerio.load(html);
   $("script").each(function(i, elem) {
     var scriptBody = $(this).text();
-    if (isTrackingScript(scriptBody)) {
+    if (hasTrackingScript(scriptBody)) {
       // remove entire script element
       $(this).remove();
     } else {
@@ -51,7 +51,7 @@ function processScripts(html) {
   return $;
 }
 
-function isTrackingScript(body) {
+function hasTrackingScript(body) {
   //  open to suggestions on how to improve this
   return (
     new RegExp("connect.facebook.net").test(body) ||
@@ -67,6 +67,7 @@ function minify(body) {
     return result.code;
   }
 }
+
 function cleanCss($) {
   $("style").each(function(i, elem) {
     var styleBody = $(this).text();
@@ -81,4 +82,10 @@ function cleanHtml($) {
   return htmlBeautify(html);
 }
 
-module.exports = HtmlManager;
+module.exports = {
+  HtmlManager,
+  processScripts,
+  hasTrackingScript,
+  cleanCss,
+  cleanHtml
+};
