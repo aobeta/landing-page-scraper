@@ -1,5 +1,6 @@
 const { HtmlManager } = require("./src/HtmlManager");
-const scraper = require("./src/pagescraper");
+const scraper = require("./src/pageScraper");
+const jsOptimizer = require("./src/jsOptimizer");
 
 // once we are finished this is how we make this library available to the outside world ( strawhouse devs )
 // module.exports = function(url, options) {
