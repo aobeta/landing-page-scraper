@@ -13,10 +13,10 @@ function scrapepage(url, path = "dist/") {
       const options = Object.assign({}, scrapeConfig, {
         urls: [url],
         directory: path,
-   
-        urlFilter: function(arg) {
+
+        urlFilter: function (arg) {
           return arg.indexOf(url) === 0;
-        }
+        },
       });
       scrape(options)
         .then(result => {
