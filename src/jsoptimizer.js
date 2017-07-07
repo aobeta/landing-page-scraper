@@ -1,7 +1,24 @@
-const fs = require("fs");
+var compressor = require("node-minify");
+const dirSearch = require("directory-search");
 
-// find all the css files.
-fs.readdir("dist/css", (err, files) => {
- files.forEach(file => console.log(file));
-});
+function jsOptimizer(){
+
+    dirSearch("dist", ".js", function(err, files) {
+    console.log("files ", files);
+    files.forEach(function(file) {
+      console.log("FILE :", file);
+      compressor
+        .minify({
+          compressor: "uglifyjs",
+          input: file,
+          output: file
+        })
+        .catch(error => console.log(error));
+    });
+  });
+
+}
+
+module.exports = jsOptimizer;
+
 
