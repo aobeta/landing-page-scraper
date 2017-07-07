@@ -7,8 +7,6 @@ const copyCSSConfig = Object.assign({}, cssConfig);
 const writeFile = require("write");
 const read = require("read-file");
 
-//
-
 function optimizeCSS() {
   let arrayOfPaths = [];
   var cssRules;
