@@ -13,4 +13,6 @@ const jsOptimizer = require("./src/jsOptimizer");
 
 // just some random landing page I found
 // HtmlManager("http://webdam.com/lp/how-to-select-a-dam_041516/");
-scraper("https://www.scientificamerican.com/").then(HtmlManager);
+scraper("https://www.scientificamerican.com/")
+  .then(HtmlManager)
+  .then(jsOptimizer);
