@@ -19,7 +19,9 @@
     "node-minify": "^2.1.1",
     "uglify-js": "^3.0.23",
     "website-scraper": "^3.1.0",
-    "wrap-ansi": "^2.0.0"
+    "wrap-ansi": "^2.0.0",
+    "write": "^0.3.3",
+    "read-file": "^0.2.0"
   },
   "devDependencies": {},
   "scripts": {
