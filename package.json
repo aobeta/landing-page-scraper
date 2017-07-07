@@ -21,6 +21,7 @@
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
     "minifier": "^0.8.1",
+    "read-file": "^0.2.0",
     "website-scraper": "^3.1.0",
     "write": "^0.3.3"
   }

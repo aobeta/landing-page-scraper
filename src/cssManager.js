@@ -5,27 +5,36 @@ const cleanCSS = require("clean-css");
 const copyScrapeConfig = Object.assign({}, scrapeConfig);
 const copyCSSConfig = Object.assign({}, cssConfig);
 const writeFile = require("write");
+const read = require("read-file");
 
 //
 
 function optimizeCSS() {
   let arrayOfPaths = [];
+  var cssRules;
   // find all the css file  names.
-  fs.readdir(`${copyScrapeConfig.directory}css/`, (err, files) => {
-    files.forEach(file =>
-      arrayOfPaths.push(`${copyScrapeConfig.directory}css/${file}`)
-    );
+  new Promise((resolve, reject) => {
+    fs.readdir(`${copyScrapeConfig.directory}css/`, (err, files) => {
+      files.forEach(file =>
+        arrayOfPaths.push(`${copyScrapeConfig.directory}css/${file}`)
+      );
+      resolve(arrayOfPaths);
+    });
+  }).then(result => {
+    result.forEach(path => {
+      let buffer = read.sync(path);
+      cssRules = buffer.toString();
+      console.log(cssRules);
+      new cleanCSS(copyCSSConfig)
+        .minify(cssRules)
+        .then(output => {
+          writeFile(path, output.styles);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    });
   });
-  setTimeout(() => {
-    new cleanCSS(copyCSSConfig)
-      .minify(arrayOfPaths)
-      .then(output => {
-        writeFile(`${copyScrapeConfig.directory}css/min.css`, output.styles);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, 20000);
 
   /* */
 }
