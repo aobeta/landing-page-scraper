@@ -22,7 +22,6 @@ function optimizeCss() {
     result.forEach(path => {
       let buffer = read.sync(path);
       cssRules = buffer.toString();
-      console.log(cssRules);
       new cleanCSS(copyCSSConfig)
         .minify(cssRules)
         .then(output => {
