@@ -1,26 +1,34 @@
-const { HtmlManager, hasTrackingScript } = require("../src/HtmlManager");
-const fs = require("fs");
-const cheerio = require("cheerio");
+const { HtmlManager, hasTrackingScript } = require('../src/HtmlManager');
+const fs = require('fs');
+const cheerio = require('cheerio');
+const rimraf = require('rimraf');
 
-test("throws an error if there is no HTML file to parse", () => {
-  fs.mkdirSync("dist");
-  expect(HtmlManager()).rejects.toEqual(
-    "There is more or less than one Html file"
-  );
-  fs.rmdirSync("dist");
+beforeEach(() => {
+  fs.mkdirSync('dist');
 });
 
-test("throws an error if there is more than one html file", () => {
-  fs.mkdirSync("dist");
-  fs.writeFileSync("dist/index.html", "", "utf8");
-  fs.writeFileSync("dist/test.html", "", "utf8");
+afterEach(() => {
+  rimraf.sync('dist/', {}, function(error) {
+    console.log('Error Removing dir', error);
+  });
+});
+
+test('throws an error if there is no HTML file to parse', () => {
   expect(HtmlManager()).rejects.toEqual(
-    "There is more or less than one Html file"
+    'There is more or less than one Html file',
   );
 });
 
-test("should remove facebook tracking scripts", () => {
-  let sampleHtml = `
+test('throws an error if there is more than one html file', () => {
+  fs.writeFileSync('dist/index.html', '', 'utf8');
+  fs.writeFileSync('dist/test.html', '', 'utf8');
+  expect(HtmlManager()).rejects.toEqual(
+    'There is more or less than one Html file',
+  );
+});
+
+test('should remove facebook tracking scripts', () => {
+  let sampleBlob = `
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -31,11 +39,11 @@ test("should remove facebook tracking scripts", () => {
     fbq('track', 'PageView');
     `;
 
-  expect(hasTrackingScript(sampleHtml)).toEqual(true);
+  expect(hasTrackingScript(sampleBlob)).toEqual(true);
 });
 
-test("should remove google analytics tracking scripts", () => {
-  let sampleHtml = `
+test('should remove google analytics tracking scripts', () => {
+  let sampleBlob = `
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -45,5 +53,5 @@ test("should remove google analytics tracking scripts", () => {
     ga('send', 'pageview');
     `;
 
-  expect(hasTrackingScript(sampleHtml)).toEqual(true);
+  expect(hasTrackingScript(sampleBlob)).toEqual(true);
 });

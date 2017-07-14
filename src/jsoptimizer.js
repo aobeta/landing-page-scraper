@@ -1,14 +1,14 @@
-var compressor = require("node-minify");
-const dirSearch = require("directory-search");
+var compressor = require('node-minify');
+const dirSearch = require('directory-search');
 
 function jsOptimizer() {
-  dirSearch("dist", ".js", function(err, files) {
+  dirSearch('dist', '.js', function(err, files) {
     files.forEach(function(file) {
       compressor
         .minify({
-          compressor: "uglifyjs",
+          compressor: 'uglifyjs',
           input: file,
-          output: file
+          output: file,
         })
         .catch(error => console.log(error));
     });

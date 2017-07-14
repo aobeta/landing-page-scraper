@@ -1,7 +1,7 @@
-const scrape = require("website-scraper");
-const fs = require("fs");
-const scrapeConfig = require("../scraper.config.js");
-const optimizeCSS = require("./cssManager.js");
+const scrape = require('website-scraper');
+const fs = require('fs');
+const scrapeConfig = require('../scraper.config.js');
+const optimizeCss = require('./cssManager.js');
 
 // url  expects a string
 function scrapepage(url) {
@@ -13,18 +13,18 @@ function scrapepage(url) {
       },
     });
     fs.access(options.directory, err => {
-      if (err && err.code !== "ENOENT")
-        return Promise.reject("directory already exists");
+      if (err && err.code !== 'ENOENT')
+        return Promise.reject('directory already exists');
     });
     scrape(options)
       .then(result => {
-        console.log("scrapepage has finnished executing");
-        console.log("running css optimizations");
+        console.log('scrapepage has finnished executing');
+        console.log('running css optimizations');
         resolve(result);
       })
       .catch(error => {
         console.log(error);
-        reject(new Error("there was an error"));
+        reject(new Error('there was an error'));
       });
   });
 }

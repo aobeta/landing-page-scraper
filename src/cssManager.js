@@ -1,15 +1,15 @@
-const fs = require("fs");
-const cssConfig = require("../css.config.js");
-const scrapeConfig = require("../scraper.config.js");
-const cleanCSS = require("clean-css");
+const fs = require('fs');
+const cssConfig = require('../css.config.js');
+const scrapeConfig = require('../scraper.config.js');
+const cleanCSS = require('clean-css');
 const copyScrapeConfig = Object.assign({}, scrapeConfig);
 const copyCSSConfig = Object.assign({}, cssConfig);
-const writeFile = require("write");
-const read = require("read-file");
+const writeFile = require('write');
+const read = require('read-file');
 
-function optimizeCSS() {
+function optimizeCss() {
   let arrayOfPaths = [];
-  var cssRules;
+  let cssRules;
   // find all the css file  names.
   new Promise((resolve, reject) => {
     fs.readdir(`${copyScrapeConfig.directory}css/`, (err, files) => {
@@ -36,4 +36,4 @@ function optimizeCSS() {
   /* */
 }
 
-module.exports = optimizeCSS;
+module.exports = optimizeCss;
