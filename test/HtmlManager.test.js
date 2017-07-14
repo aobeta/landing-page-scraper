@@ -1,22 +1,34 @@
 const { HtmlManager, hasTrackingScript } = require('../src/HtmlManager');
 const fs = require('fs');
 const cheerio = require('cheerio');
+const rimraf = require('rimraf');
+
+beforeEach(() => {
+  fs.mkdirSync('dist');
+});
+
+afterEach(() => {
+  rimraf.sync('dist/', {}, function(error) {
+    console.log('Error Removing dir', error);
+  });
+});
 
 test('throws an error if there is no HTML file to parse', () => {
-  fs.mkdirSync('dist');
   expect(HtmlManager()).rejects.toEqual(
-    'There is more or less than one Html file'
+    'There is more or less than one Html file',
   );
   fs.rmdirSync('dist');
 });
 
 test('throws an error if there is more than one html file', () => {
-  fs.mkdirSync('dist');
   fs.writeFileSync('dist/index.html', '', 'utf8');
   fs.writeFileSync('dist/test.html', '', 'utf8');
   expect(HtmlManager()).rejects.toEqual(
-    'There is more or less than one Html file'
+    'There is more or less than one Html file',
   );
+  // rimraf.sync('dist/', {}, function(error) {
+  //   console.log('Error Removing dir', error);
+  // });
 });
 
 test('should remove facebook tracking scripts', () => {

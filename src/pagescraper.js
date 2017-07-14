@@ -1,7 +1,7 @@
 const scrape = require('website-scraper');
 const fs = require('fs');
 const scrapeConfig = require('../scraper.config.js');
-const optimizeCSS = require('./cssManager.js');
+const optimizeCss = require('./cssManager.js');
 
 // url  expects a string
 function scrapepage(url) {
