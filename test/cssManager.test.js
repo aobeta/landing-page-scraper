@@ -1,13 +1,13 @@
-const cssManage = require('../src/cssManager');
-const fs = require('fs');
-const cssConfig = require('../css.config.js');
 const scrapeConfig = require('../scraper.config.js');
-const cleanCSS = require('clean-css');
-const copyScrapeConfig = Object.assign({}, scrapeConfig);
-const copyCSSConfig = Object.assign({}, cssConfig);
-const writeFile = require('write');
-const read = require('read-file');
-const htmlManage = require('../src/HtmlManager');
-const pageScrape = require('../src/pagescraper');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-//to-do write tests.
+app.use(express.static(scrapeConfig.directory));
+
+const server = app.listen(port, function() {
+  console.log(`server running on ${port}`);
+});
+
+// how you close the file
+// server.close();
