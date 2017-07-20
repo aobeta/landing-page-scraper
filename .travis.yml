@@ -1,3 +1,6 @@
 language: node_js
 node_js:
   - "7.2"
+
+notifications:
+    slack: strawhouse-cosc499:gJLek8OYecduc8JNu1Kb32RS
